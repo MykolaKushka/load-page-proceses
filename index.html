@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Процеси під час завантаження вебсторінки</title>
+    
+    
+    <!-- <link href='http://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:400,700' rel='stylesheet' type='text/css'> -->
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/reset.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+      <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+        <header>
+                <h1>Що відбувається після введення адреси в браузер</h1>
+            </header>
+        
+            <section id="cd-timeline" class="cd-container">
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-picture">
+                        <!-- <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-picture.svg" alt="Picture"> -->
+                        1
+                    </div> 
+        
+                    <div class="cd-timeline-content">
+                        <h2>User Interface -> Browser Engine</h2>
+                        <p>Адресна строка є частиною User Interface - компонента браузера. Він передає управління компоненту Browser Engine (відповідає за взаємодію компонентів)</p>
+                        <!-- <a href="#0" class="cd-read-more">Read more</a> -->
+                        <!-- <span class="cd-date">1</span> -->
+                    </div> 
+                </div> 
+        
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-movie">
+                        <!-- <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-movie.svg" alt="Movie"> -->
+                        2
+                    </div> 
+        
+                    <div class="cd-timeline-content">
+                        <h2>Старт DNS lookup</h2>
+                        <p>Починається процес DNS lookup. Щоб дізнатися IP адресу браузер дивиться в локальний кеш DNS</p>                      
+                    </div> 
+                </div> 
+        
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-location">
+                        3
+                    </div> 
+        
+                    <div class="cd-timeline-content">
+                        <h2>ОС перевіряє кеш DNS</h2>
+                        <p>Якщо IP немає в локальному кешу - браузер передає управління операційній системі (ОС), яка перевіряє свій кеш DNS</p>
+                        
+                    </div> 
+                </div> 
+        
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-picture">
+                        <!-- <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.svg" alt="Location"> -->
+                        4
+                    </div> 
+        
+                    <div class="cd-timeline-content">
+                        <h2>Локальні хости</h2>
+                        <p>ОС дивиться локальні хости</p>
+                        
+                    </div> 
+                </div> 
+        
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-movie">
+                        5
+                    </div> 
+        
+                    <div class="cd-timeline-content">
+                        <h2>Кеш інтернет провайдера</h2>
+                        <p>ОС звертається до кешу інтернет провайдера</p>
+                        
+                    </div> 
+                </div> 
+        
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-location">
+                        6
+                    </div> 
+        
+                    <div class="cd-timeline-content">
+                        <h2>Кеш кореневого DNS</h2>
+                        <p>У випадку відсутності запит іде на кеш кореневого DNS</p>
+                    </div> 
+                </div> 
+
+                
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-picture">
+                        7
+                    </div> 
+        
+                    <div class="cd-timeline-content">
+                        <h2>Сервери DNS</h2>
+                        <p>Запит іде по ланцюжку серверів DNS</p>
+                    </div> 
+                </div> 
+
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-movie">
+                        8
+                    </div> 
+        
+                    <div class="cd-timeline-content">
+                        <h2>Отримання IP</h2>
+                        <p>Якщо знаходиться запис на будь якому етапі вище - він зберігається в усіх кешах по дорозі і повертається браузеру з потрібною IP адресою</p>
+                    </div> 
+                </div> 
+
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-location">
+                        9
+                    </div> 
+        
+                    <div class="cd-timeline-content">
+                        <h2>Локальний кеш</h2>
+                        <p>Browser Engine дивиться в локальному кеші за потрібною сторінкою</p>
+                    </div> 
+                </div>
+                        
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-picture">
+                        10
+                    </div> 
+        
+                    <div class="cd-timeline-content">
+                        <h2>Networking Component</h2>
+                        <p>Якщо сторінки немає - управління передається компоненту Rendering Engine, який звертається до Networking Component</p>
+                    </div> 
+                </div> 
+        
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-movie">
+                        11
+                    </div> 
+        
+                    <div class="cd-timeline-content">
+                        <h2>Get запит по IP</h2>
+                        <p>Networking Component робить get запит на вказаний IP на порт 80 або 443 в залежності від протоколу (http, https) з  заголовком host (в якому передається хост потрібного сайту). Якщо відповідний порт відкритий - запит буде виконано</p>
+                    </div> 
+                </div> 
+
+
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-location">
+                        12
+                    </div> 
+        
+                    <div class="cd-timeline-content">
+                        <h2>Веб-сервер</h2>
+                        <p>На сервері запит приймає веб-сервер (nginx або apache). Веб-сервер порівнює отриманий хост з запиту і порівнює з тими, які є записані у нього в конфігурації</p>
+                    </div> 
+                </div>
+                        
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-picture">
+                        13
+                    </div> 
+        
+                    <div class="cd-timeline-content">
+                        <h2>Правила обробки</h2>
+                        <p>Якщо є співпадіння, то веб-сервер виконує прописані в конфігупації правила обробки</p>
+                    </div> 
+                </div> 
+        
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-movie">
+                        14
+                    </div> 
+        
+                    <div class="cd-timeline-content">
+                        <h2>Запит в базу, запити на сервери</h2>
+                        <p>Далі може відбуватися робота з базами даних, кешами, запити на інші сервери, виконання скриптів</p>
+                    </div> 
+                </div> 
+
+
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-location">
+                        15
+                    </div> 
+        
+                    <div class="cd-timeline-content">
+                        <h2>Отримання файлу</h2>
+                        <p>Браузер отримує згенерований файл (наприклад index.html) з відповідними http заголовками від сервера, якщо є заголовки для кешування - браузер записує файл в локальний кеш</p>
+                    </div> 
+                </div>
+                
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-picture">
+                        16
+                    </div> 
+        
+                    <div class="cd-timeline-content">
+                        <h2>Parsing документу</h2>
+                        <p>Якщо отримана довжина контенту більше нуля і тип контенту підтримується браузером - браузер намагається його обробити. Rendering Engine компонент починає розбір (parsing) документу - наприклад html</p>
+                    </div> 
+                </div> 
+
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-movie">
+                        17
+                    </div> 
+        
+                    <div class="cd-timeline-content">
+                        <h2>Document Object Model і styleSheets</h2>
+                        <p>Створюється Document Object Model. Також створюється об'єкт styleSheets, якийй буде зберігати  стилі</p>
+                    </div> 
+                </div> 
+
+
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-location">
+                        18
+                    </div> 
+        
+                    <div class="cd-timeline-content">
+                        <h2>З байтів в символи</h2>
+                        <p>Перетворення отриманого набору байтів в символи згідно кодування, яка була отримана в заголовку Content-Type</p>
+                    </div> 
+                </div>
+                
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-picture">
+                        19
+                    </div> 
+        
+                    <div class="cd-timeline-content">
+                        <h2>Токени і вузли</h2>
+                        <p>Наступним процесом розбиття тексту на блоки (tokenization) і збір токенів в вузли (nodes)</p>
+                    </div> 
+                </div> 
+
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-movie">
+                        20
+                    </div> 
+        
+                    <div class="cd-timeline-content">
+                        <h2>Завантаження стилів, скриптів, зображень</h2>
+                        <p>Під час розбиття Rendering Engine передає команду Networking Component для завантаження зовнішніх стилів, скриптів та зображень</p>
+                    </div> 
+                </div> 
+
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-location">
+                        21
+                    </div> 
+        
+                    <div class="cd-timeline-content">
+                        <h2>Пріоритети обробки</h2>
+                        <p>Networking Component обробляє дані згідно пріоритетів (у HTML, CSS, і шрифтів - він вище ніж у зображень)</p>
+                    </div> 
+                </div>
+                
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-picture">
+                        22
+                    </div> 
+        
+                    <div class="cd-timeline-content">
+                        <h2>Load та complete</h2>
+                        <p>Коли всі ресурси завантажилися відбувається подія load і стан документу міняєтсья на complete</p>
+                    </div> 
+                </div> 
+
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-movie">
+                        23
+                    </div> 
+        
+                    <div class="cd-timeline-content">
+                        <h2>Render Tree</h2>
+                        <p>Rendering Engine починає побудову Render Tree з елементами, які потрібно зобразити</p>
+                    </div> 
+                </div> 
+
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-location">
+                        24
+                    </div> 
+        
+                    <div class="cd-timeline-content">
+                        <h2>Layout</h2>
+                        <p>Коли Render Tree готовий, запускається процес layout - обчислення розміру і позиції кожного елементу на сторінці</p>
+                    </div> 
+                </div>
+
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-picture">
+                        25
+                    </div> 
+        
+                    <div class="cd-timeline-content">
+                        <h2>Paint</h2>
+                        <p>Наступний етап - paint - обчислення кольору кожного пікселя</p>
+                    </div> 
+                </div>
+
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-movie">
+                        26
+                    </div> 
+        
+                    <div class="cd-timeline-content">
+                        <h2>Composite</h2>
+                        <p>Останній етап - composite. Компонент UI Backend відображає шар за шаром елементи на сторінці</p>
+                    </div> 
+                </div>
+                    
+            </section>
+
+            <div class="cd-container" style="margin-top: 50px; margin-bottom: 50px">
+                <a href="https://www.linkedin.com/in/mykolakushka/" target="_blank">Заходьте</a> в гості :) 
+                Використано матеріали статті <a href="https://medium.com/genesis-media/%D1%87%D1%82%D0%BE-%D1%81%D1%82%D0%BE%D0%B8%D1%82-%D0%B7%D0%B0-%D0%BF%D1%80%D0%BE%D1%81%D1%82%D0%BE%D0%B9-%D0%B7%D0%B0%D0%B3%D1%80%D1%83%D0%B7%D0%BA%D0%BE%D0%B9-%D0%B2%D0%B5%D0%B1-%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%87%D0%BA%D0%B8-%D0%B2-%D0%B1%D1%80%D0%B0%D1%83%D0%B7%D0%B5%D1%80%D0%B5-3933c96467a" target="_blank">"Что стоит за простой загрузкой веб-странички в браузере"</a>
+
+             та Vertical timeline від <a href="https://codepen.io/codyhouse" target="_blank">CodyHouse</a></div>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+
+    <script src="script.js"></script>
+  </body>
+</html>
